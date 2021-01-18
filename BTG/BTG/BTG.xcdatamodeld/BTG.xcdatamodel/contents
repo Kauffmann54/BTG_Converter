@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Currency" representedClassName="Currency" syncable="YES" codeGenerationType="class">
+        <attribute name="currencyCode" optional="YES" attributeType="String"/>
+        <attribute name="currencyFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="currencyFlag" optional="YES" attributeType="String"/>
+        <attribute name="currencyName" optional="YES" attributeType="String"/>
+        <attribute name="currencyValue" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="CurrencyDestiny" representedClassName="CurrencyDestiny" syncable="YES" codeGenerationType="class">
+        <attribute name="currencyCode" optional="YES" attributeType="String"/>
+        <attribute name="currencyFlag" optional="YES" attributeType="String"/>
+        <attribute name="currencyName" optional="YES" attributeType="String"/>
+        <attribute name="currencyValue" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="CurrencyLive" representedClassName="CurrencyLive" syncable="YES" codeGenerationType="class">
+        <attribute name="privacy" optional="YES" attributeType="String"/>
+        <attribute name="quotes" optional="YES" attributeType="Transformable"/>
+        <attribute name="source" optional="YES" attributeType="String"/>
+        <attribute name="success" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="terms" optional="YES" attributeType="String"/>
+        <attribute name="timestamp" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <entity name="CurrencySource" representedClassName="CurrencySource" syncable="YES" codeGenerationType="class">
+        <attribute name="currencyCode" optional="YES" attributeType="String"/>
+        <attribute name="currencyFlag" optional="YES" attributeType="String"/>
+        <attribute name="currencyName" optional="YES" attributeType="String"/>
+        <attribute name="currencyValue" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="Currency" positionX="-63" positionY="-18" width="128" height="104"/>
+        <element name="CurrencyDestiny" positionX="-27" positionY="81" width="128" height="89"/>
+        <element name="CurrencyLive" positionX="-18" positionY="63" width="128" height="119"/>
+        <element name="CurrencySource" positionX="-36" positionY="72" width="128" height="89"/>
+    </elements>
+</model>
