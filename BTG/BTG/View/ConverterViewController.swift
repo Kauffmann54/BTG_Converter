@@ -103,8 +103,9 @@ class ConverterViewController: UIViewController {
     
     @IBAction func reloadCurrency(_ sender: Any) {
         StyleButton.vibrar()
+        self.loadingView.isHidden = false
         self.converterViewModel?.getCurrencyLive(completion: { (retrieve) in
-            
+            self.loadingView.isHidden = true
         })
     }
     

@@ -193,6 +193,7 @@ class ConverterViewModel : NSObject {
                     if currencyValueModel.success! == true {
                         CurrencyCoreData.saveLive(currencyValueModel: currencyValueModel)
                         self.currencyValueModel = currencyValueModel
+                        completion(true)
                     } else {
                         self.apiService.showError(errorCode: currencyValueModel.error?.code ?? 0)
                         completion(false)
