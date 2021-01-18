@@ -16,6 +16,7 @@ class ConverterViewModel : NSObject {
     private(set) var currencyValueModel: CurrencyValueModel? {
         didSet {
             self.bindCurrencyViewModelToController()
+            self.bindCurrencyValueViewModelToController.value = true
         }
     }
     
@@ -29,6 +30,7 @@ class ConverterViewModel : NSObject {
     private var valueCurrency: String?
     
     var bindCurrencyViewModelToController: (() -> ()) = {}
+    lazy var bindCurrencyValueViewModelToController = Observer(false)
         
     public var currencyValor1Text: String {
         return formatterMoney(value: currencyModelSource!.currencyValue)

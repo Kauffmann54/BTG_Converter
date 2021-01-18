@@ -25,7 +25,6 @@ class ConverterViewController: UIViewController {
     // MARK: - Properties
     private var converterViewModel: ConverterViewModel!
     var currencyIsSource: Bool = false
-    var timer = Timer()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -110,21 +109,12 @@ class ConverterViewController: UIViewController {
     }
     
     // MARK: - Funtions
-    @objc func callToViewModelForUIUpdate() {
+    func callToViewModelForUIUpdate() {
         self.loadingView.isHidden = false
-        self.converterViewModel.bindCurrencyViewModelToController = {
-            if self.converterViewModel.currencyValueModel == nil {
-                self.getCurrency()
-            } else {
-                self.loadingView.isHidden = true
-                self.updateUI()
-            }
+        self.converterViewModel.bindCurrencyValueViewModelToController.bind { (_) in
+            self.loadingView.isHidden = true
+            self.updateUI()
         }
-    }
-    
-    /// If you cannot retrieve the current quote, a new request is made every 10 seconds
-    func getCurrency() {
-        self.timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.callToViewModelForUIUpdate), userInfo: nil, repeats: false)
     }
     
     func updateUI() {

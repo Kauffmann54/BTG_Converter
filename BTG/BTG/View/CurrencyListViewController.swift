@@ -19,7 +19,6 @@ class CurrencyListViewController: UIViewController {
     // MARK: - Properties
     var currencyListViewModel: CurrencyListViewModel?
     var currencyIsSource: Bool = false
-    var timer = Timer()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -86,27 +85,17 @@ class CurrencyListViewController: UIViewController {
     }
     
     // MARK: - Funtions
-    @objc func callToViewModelForUIUpdate() {
+    func callToViewModelForUIUpdate() {
         self.loadindIndicator.isHidden = false
         currencyListViewModel?.bindCurrencyListViewModelToController.bind(listener: { (_) in
             self.refreshControl.endRefreshing()
-            if self.currencyListViewModel?.listCurrency.count == 0 {
-                self.currencyListViewModel?.getCurrencyCoreData(newList: false)
-                self.getCurrencyList()
+            self.loadindIndicator.isHidden = true
+            self.currencyListViewModel?.organizeList(type: 1, completion: {
                 self.currencyTableView.reloadData()
-            } else {
-                self.loadindIndicator.isHidden = true
-                self.currencyListViewModel?.organizeList(type: 1, completion: {
-                    self.currencyTableView.reloadData()
-                })
-            }
+            })
         })
     }
     
-    /// If you cannot retrieve the current list code, a new request is made every 10 seconds
-    func getCurrencyList() {
-        self.timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.callToViewModelForUIUpdate), userInfo: nil, repeats: false)
-    }
     
     @objc func refreshCurrencyList(_ sender: Any) {
         self.currencyListViewModel?.getCurrencyCoreData(newList: true)
