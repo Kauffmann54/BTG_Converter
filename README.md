@@ -32,8 +32,8 @@ dependências.
 # Features
 ### Obrigatórias:
 
-* As taxas de câmbio disponíveis devem ser obtidas da chamada de API Supported Currencies (**/list**)
-* A cotação atual deve ser obtida da chamada de API Real-time Rates (**/live**)
+* As taxas de câmbio disponíveis devem ser obtidas da chamada de API Supported Currencies (**/list**).
+* A cotação atual deve ser obtida da chamada de API Real-time Rates (**/live**).
 * É necessário fazer tratamento de erros e dos fluxos de exceção, como busca vazia, carregamento e outros erros que possam ocorrer.
 
 ### Opcionais (não necessário, porém contam pontos):
@@ -166,7 +166,7 @@ dependências.
 
 ## Testes unitários:
 
-* Testa a inicialização de uma instância de ConverterViewModel e verifique se está recuperando a cotação atual ou se está salva localmente.
+* Testa a inicialização de uma instância de **ConverterViewModel** e verifique se está recuperando a cotação atual ou se está salva localmente.
 
 ```swift
 func testConverterViewModel() {
@@ -188,7 +188,7 @@ func testConverterViewModel() {
 
 
 
-* Testa a inicialização de uma instância de CurrencyListViewModel e verifique se está recuperando a lista de moedas disponíveis ou se está salva localmente.
+* Testa a inicialização de uma instância de **CurrencyListViewModel** e verifique se está recuperando a lista de moedas disponíveis ou se está salva localmente.
 
 ```swift
 func testCurrencyListViewModel() {
